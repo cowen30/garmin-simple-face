@@ -182,7 +182,7 @@ class SimpleGarminFaceView extends WatchUi.WatchFace {
 			dc.drawText(screenWidth * .82, centerY, Graphics.FONT_TINY, ampm, Graphics.TEXT_JUSTIFY_LEFT);
 		} else {
 			// Get the width and height of the seconds text
-			var secondsDimensions = dc.getTextDimensions(sec, secondsFont);
+			var secondsDimensions = dc.getTextDimensions("99", secondsFont);
 
 			// Set the clip so it's just the seconds value.
 			dc.setClip(secondsX, secondsY, secondsDimensions[0] + 1, secondsDimensions[1] + 1);
@@ -191,6 +191,7 @@ class SimpleGarminFaceView extends WatchUi.WatchFace {
 			dc.clear();
 		}
 
+		dc.setColor(timeColor, Graphics.COLOR_TRANSPARENT);
 		// Draw seconds
 		dc.drawText(secondsX, secondsY, secondsFont, sec, Graphics.TEXT_JUSTIFY_LEFT);
     }
